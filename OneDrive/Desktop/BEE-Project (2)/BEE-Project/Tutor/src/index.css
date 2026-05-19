@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --color-karat-bg: #e6faf7;
+  --color-karat-primary: #1abba4;
+  --color-karat-primary-hover: #159b88;
+  --color-karat-text: #0f1c1b;
+  --color-karat-light: #f3fdfb;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  /* Karat case study background is a smooth teal/mint gradient */
+  background: linear-gradient(135deg, var(--color-karat-light) 0%, #c4f1e9 50%, #90e0d2 100%);
+  color: var(--color-karat-text);
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-attachment: fixed;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(0, 50, 50, 0.1);
+  border-radius: 1.5rem;
+  /* 24px */
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+}
+
+.glass-button {
+  background: var(--color-karat-primary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(26, 187, 164, 0.3);
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+  /* full rounded */
+  font-weight: 600;
+}
+
+.glass-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 187, 164, 0.4);
+  background: var(--color-karat-primary-hover);
+}
+
+.secondary-button {
+  background: white;
+  color: var(--color-karat-primary);
+  border: 2px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 50, 50, 0.05);
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 50, 50, 0.1);
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar,
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Replace old specific styles with generic or updated ones */
+.app {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: var(--color-karat-text);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-karat-primary);
+  box-shadow: 0 0 0 3px rgba(26, 187, 164, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Upload box matching the theme */
+.upload-box {
+  border: 2px dashed rgba(26, 187, 164, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--color-karat-primary);
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float-delay {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float-delay {
+  animation: float-delay 7s ease-in-out infinite 1s;
+}
